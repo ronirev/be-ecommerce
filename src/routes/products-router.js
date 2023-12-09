@@ -1,4 +1,9 @@
 import { Router } from 'express';
+import ProductManager from "../class/ProductManager.js";
+
+const path = 'src/data/file.json'
+
+const manager = new ProductManager(path);
 
 const router = Router();
 
@@ -6,12 +11,27 @@ router.post('/', (req, res)=>{
     res.status(201).json({messsage:'Crea un producto'});
 });
 
-router.get('/', (req, res)=>{
-    res.status(200).json({messsage:'Devuelve todos los productos'});
+router.get('/', async (req, res)=>{
+    //res.status(200).json({messsage:'Devuelve todos los productos'});
+    const limit = req.query.limit;
+    let products = await manager.getProducts();
+    if (limit && !isNaN(limit)) {
+      products =  products.slice(0, parseInt(limit));
+    }
+    res.json(products);
 });
 
-router.get('/:pid', (req, res)=>{
-    res.status(200).json({messsage:'Devuelve un prodcto por su PID'});
+router.get('/:pid', async (req, res)=>{
+    //res.status(200).json({messsage:'Devuelve un prodcto por su PID'});
+    const pid = req.params.pid
+    try {
+      const product = await  manager.getProductByid(pid)
+      res.json(product)
+    } catch (error) {
+      res.status(404).json({message:'No existe el producto buscado'})
+    }
+
+
 });
 
 
