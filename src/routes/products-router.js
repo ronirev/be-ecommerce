@@ -7,8 +7,16 @@ const manager = new ProductManager(path);
 
 const router = Router();
 
-router.post('/', (req, res)=>{
-    res.status(201).json({messsage:'Crea un producto'});
+router.post('/', async (req, res)=>{
+
+    try {
+      const newProduct = await manager.addProduct(req.body)   
+      console.log(newProduct)
+      res.status(201).json( newProduct );
+
+    } catch (error) {
+      console.log(error)
+    }
 });
 
 router.get('/', async (req, res)=>{
@@ -30,8 +38,6 @@ router.get('/:pid', async (req, res)=>{
     } catch (error) {
       res.status(404).json({message:'No existe el producto buscado'})
     }
-
-
 });
 
 

@@ -25,7 +25,6 @@ export default class ProductManager {
             return newProduct;
         } catch (error) {
             console.log(error)
-            
         }
 
 }
