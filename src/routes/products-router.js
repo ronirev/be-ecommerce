@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import ProductManager from "../class/ProductManager.js";
 
-const path = 'src/data/file.json'
+const path = 'src/data/productos.json'
 
 const manager = new ProductManager(path);
 

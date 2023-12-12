@@ -1,7 +1,7 @@
 import { Router } from 'express';
 import CartManager from "../class/CartManager.js";
 
-const path = 'src/data/carts.json'
+const path = 'src/data/carrrito.json'
 
 const manager = new CartManager(path);
 

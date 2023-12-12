@@ -12,15 +12,14 @@ export default class CartManager {
     async addCart(newCart) {        
         try {
             const directory = await setPathData(this.path);
-           // this.path = directory
-        if (directory !== '') {
-            const data = await fs.readFile(directory);
-            const carts = JSON.parse(data);
-            newCart.id = this.#idGenerate(carts);
-            carts.push(newCart);
-            const json_carts = JSON.stringify(carts);
-            await fs.writeFile(directory, json_carts, 'utf-8');
-        }
+            if (directory !== '') {
+                const data = await fs.readFile(directory);
+                const carts = JSON.parse(data);
+                newCart.id = this.#idGenerate(carts);
+                carts.push(newCart);
+                const json_carts = JSON.stringify(carts);
+                await fs.writeFile(directory, json_carts, 'utf-8');
+            }
         
         return newCart;
 

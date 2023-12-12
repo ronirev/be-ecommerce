@@ -12,16 +12,15 @@ export default class ProductManager {
       async addProduct(newProduct) { 
         try {
             const directory = await setPathData(this.path);
-           // this.path = directory
-        if (directory !== '') {
-            const data = await fs.readFile(directory);
-            const products = JSON.parse(data);
-            newProduct.id = this.#idGenerate(products);
-            products.push(newProduct);
+            if (directory !== '') {
+                const data = await fs.readFile(directory);
+                const products = JSON.parse(data);
+                newProduct.id = this.#idGenerate(products);
+                products.push(newProduct);
 
-            const json_products = JSON.stringify(products);
-            await fs.writeFile(directory, json_products, 'utf-8');
-        }
+                const json_products = JSON.stringify(products);
+                await fs.writeFile(directory, json_products, 'utf-8');
+            }
             return newProduct;
         } catch (error) {
             console.log(error)

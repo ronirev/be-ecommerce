@@ -1,0 +1,233 @@
+{
+    "info": {
+        "_postman_id": "eb1dc019-f5d6-49f1-bbe4-141a145f6c95",
+        "name": "ecommerce",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "description": ""
+    },
+    "item": [
+        {
+            "name": "Products",
+            "item": [
+                {
+                    "name": "Get Product By PID",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:8080/api/products/3",
+                            "path": [
+                                "api",
+                                "products",
+                                "3"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        }
+                    }
+                },
+                {
+                    "name": "Ceate Product",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "localhost:8080/api/products",
+                            "path": [
+                                "api",
+                                "products"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"title\": \"Producto3\",\n  \"description\": \"Description\",\n  \"price\": 30,\n  \"code\": \"CODPROD03\",\n  \"status\": true,\n  \"stock\": 1,\n  \"category\": \"hogar\",\n  \"thumbnail\": \"https://thumbnail.com/image.png\"\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Get All Products",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:8080/api/products",
+                            "path": [
+                                "api",
+                                "products"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        }
+                    }
+                },
+                {
+                    "name": "Delete Product By Pid",
+                    "request": {
+                        "method": "DELETE",
+                        "url": {
+                            "raw": "localhost:8080/api/products/5",
+                            "path": [
+                                "api",
+                                "products",
+                                "5"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        }
+                    }
+                },
+                {
+                    "name": "Update Product By Pid",
+                    "request": {
+                        "method": "PUT",
+                        "url": {
+                            "raw": "localhost:8080/api/products/5",
+                            "path": [
+                                "api",
+                                "products",
+                                "5"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"id\":5,\n  \"title\": \"Producto5\",\n  \"description\": \"Description actualizado\",\n  \"price\": 15,\n  \"code\": \"CODPROD05\",\n  \"status\": false,\n  \"stock\": 0,\n  \"category\": \"hoga777\",\n  \"thumbnail\": \"https://thumbnail.com/image.png\"\n}"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Carts",
+            "item": [
+                {
+                    "name": "Get All Carts",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:8080/api/carts",
+                            "path": [
+                                "api",
+                                "carts"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        }
+                    }
+                },
+                {
+                    "name": "Get Cart By Id",
+                    "request": {
+                        "method": "GET",
+                        "url": {
+                            "raw": "localhost:8080/api/carts/1",
+                            "path": [
+                                "api",
+                                "carts",
+                                "1"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        }
+                    }
+                },
+                {
+                    "name": "Create Cart",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "localhost:8080/api/carts",
+                            "path": [
+                                "api",
+                                "carts"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": "{\n  \"products\":[]\n}"
+                        }
+                    }
+                },
+                {
+                    "name": "Create Products in Cart",
+                    "request": {
+                        "method": "POST",
+                        "url": {
+                            "raw": "localhost:8080/api/carts/1/products/2",
+                            "path": [
+                                "api",
+                                "carts",
+                                "1",
+                                "products",
+                                "2"
+                            ],
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "8080"
+                        },
+                        "body": {
+                            "mode": "raw",
+                            "options": {
+                                "raw": {
+                                    "language": "json"
+                                }
+                            },
+                            "raw": " {\n    \"product\": 2,\n    \"quantity\": 1\n  }"
+                        }
+                    }
+                }
+            ]
+        },
+        {
+            "name": "Health Check",
+            "request": {
+                "method": "GET",
+                "url": {
+                    "raw": "localhost:8080/api/health",
+                    "path": [
+                        "api",
+                        "health"
+                    ],
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "8080"
+                }
+            }
+        }
+    ]
+}
